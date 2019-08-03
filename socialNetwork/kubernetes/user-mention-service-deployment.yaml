@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -o kubernetes
+    kompose.version: 1.18.0 ()
+  creationTimestamp: null
+  labels:
+    io.kompose.service: user-mention-service
+  name: user-mention-service
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: user-mention-service
+    spec:
+      containers:
+      - command:
+        - UserMentionService
+        image: yg397/social-network-microservices
+        name: user-mention-service
+        resources: {}
+      hostname: user-mention-service
+      restartPolicy: Always
+status: {}

@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -o kubernetes
+    kompose.version: 1.18.0 ()
+  creationTimestamp: null
+  labels:
+    io.kompose.service: post-storage-service
+  name: post-storage-service
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: post-storage-service
+    spec:
+      containers:
+      - command:
+        - PostStorageService
+        image: yg397/social-network-microservices
+        name: post-storage-service
+        ports:
+        - containerPort: 9090
+        resources: {}
+      hostname: post-storage-service
+      restartPolicy: Always
+status: {}

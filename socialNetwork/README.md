@@ -72,6 +72,17 @@ Example of a Jaeger trace for a compose post request:
 
 ![jaeger_example](socialNet_jaeger.png)
 
+## Running on kubernetes
+
+We use kompose to transform docker-compose.yml to k8s deployment files, run:
+
+```bash
+make k8s
+```
+then start k8s, assuming a running k8s cluster is available: 
+```bash
+make k8s-up
+```
 ### Development Status
 
 This application is still actively being developed, so keep an eye on the repo to stay up-to-date with recent changes. 

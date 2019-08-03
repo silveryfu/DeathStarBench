@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -o kubernetes
+    kompose.version: 1.18.0 ()
+  creationTimestamp: null
+  labels:
+    io.kompose.service: social-graph-service
+  name: social-graph-service
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: social-graph-service
+    spec:
+      containers:
+      - command:
+        - SocialGraphService
+        image: yg397/social-network-microservices
+        name: social-graph-service
+        resources: {}
+      hostname: social-graph-service
+      restartPolicy: Always
+status: {}

@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -o kubernetes
+    kompose.version: 1.18.0 ()
+  creationTimestamp: null
+  labels:
+    io.kompose.service: media-mongodb
+  name: media-mongodb
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: media-mongodb
+    spec:
+      containers:
+      - image: mongo
+        name: media-mongodb
+        resources: {}
+      hostname: media-mongodb
+      restartPolicy: Always
+status: {}
